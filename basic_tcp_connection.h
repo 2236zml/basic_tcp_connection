@@ -67,7 +67,7 @@ public:
 };
 
 
-
+/*
 
 class tcp_connection : public basic_tcp_connection{
 public:
@@ -127,7 +127,7 @@ public:
 	tcp::endpoint _endpoint;
 };
 
-
+*/
 
 
 template <typename _Connection>
