@@ -17,13 +17,13 @@ using namespace boost::asio::ip;
 
 
 class basic_tcp_connection{
-	friend class timer;
+	friend class async_timer;
 public:
 	basic_tcp_connection()
 		:_socket( _io_service )
 	{}
 
-	static void join()
+	static void wait_all()
 	{
 		_io_service_work_thread.join();
 	}
@@ -40,9 +40,9 @@ protected:
 
 
 
-class timer{
+class async_timer{
 public:
-	timer()
+	async_timer()
 		:_timer( basic_tcp_connection::_io_service )
 	{}
 
@@ -52,7 +52,7 @@ public:
 
 		_timer.expires_from_now( time_duration );
 
-		_timer.async_wait( boost::bind( &timer::check_sleep, this ) );
+		_timer.async_wait( boost::bind( &async_timer::check_sleep, this ) );
 	}
 
 	void check_sleep()
