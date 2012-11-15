@@ -42,7 +42,7 @@ protected:
 
 class timer{
 public:
-	timer( boost::asio::io_service& io_service )
+	timer()
 		:_timer( basic_tcp_connection::_io_service )
 	{}
 
